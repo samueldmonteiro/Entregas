@@ -4,20 +4,21 @@
 header{
     width: 100%;
     position: fixed;
+    z-index: 999;
     top: 0;
 }
 
 .container-header{
-    max-width: 1320px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 30px 12px;
     align-items: center;
 }
 
 .container-header .logo{
     font-size: 30px;
+    font-weight: bold;
     color: white;
 }
 
@@ -50,6 +51,7 @@ header{
     padding: 5px 40px;
     position: absolute;
     border-radius: 4px;
+    z-index: 999;
 }
 
 .ul-services a{
@@ -64,13 +66,225 @@ header{
 .container-home-cover{
     background-color: var(--bg-blue-dark);
     background-image: url("../images/hero-bg.png");
-    height: 500px;
+    height: 72vh;
+    min-height: 650px;
 }
 
 .home-cover{
     padding-top: 120px;
+    padding-bottom: 70px;
+}
+
+.home-cover{
+    display: flex;
+    margin: 0 auto;
+    color: white;
+    justify-content: space-between;
+}
+
+.home-cover .content{
+    width: 50%;
+}
+
+.home-cover .content h1{
+    font-size: 48px;   
+}
+
+.home-cover .content .description{
+    line-height: 1.4em;
+    margin: 25px 0 35px 0;
+}
+
+.home-cover .form-location{
+    position: relative;
+    margin-top: 25px;
+}
+
+.home-cover .form-location input{
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 10px;
+}
+
+.home-cover .form-location a{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    padding: 15px 30px !important;
+}
+
+@keyframes image-home-cover {
+    from{
+        transform: scale(0.2);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.home-cover .image-cover{
+    animation: image-home-cover 0.6s ease-out;
+    flex: 1;
+    max-width: 526px;
+    position: relative;
+}
+
+.home-cover .image-cover:hover{
+    transition: 0.6s;
+    transform: scale(1.1);
+}
+
+.home-cover .numbers{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.home-cover .number-item{
+    text-align: center;
+}
+
+.home-cover .numbers span{
+    width: 18px;
+    display: inline-block;
+    height: 3px;
+    background-color: var(--bg-blue);
+}
+
+.home-cover .number-item p{
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.747);
+}
+
+.home-cover .number-item .num{
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.block-services{
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.block-services .service{
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0 12px;
+    flex: 1;
+    display: flex;
+}
+
+.block-services .service .text{
+    position: relative;
+}
+
+@keyframes block-service-icon {
+    from{
+        transform: translateY(50px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+
+.block-services .service .icon{
+    animation: block-service-icon 0.6s ease-out;
+    color: var(--bg-blue-bold);
+    font-size: 3em;
+    margin-right: 15px;
+}
+
+
+.block-services .service .title{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: var(--bg-blue-dark);
 
 }
-body{
-    min-height: 300vh;
+
+.block-services .service .description{
+    font-size: 0.9em;
+    color: var(--bg-blue-dark);
+    line-height: 1.5em;
+    margin: 10px 0px;
+    margin-bottom: 30px;
+}
+
+.block-services .service .more{
+    font-size: 0.9em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 0;
+    color: var(--bg-blue-dark);
+}
+
+
+/* Home Services */
+
+.home .services{
+    margin: 60px auto;
+    font-size: 16px;
+}
+
+.home .services .title{
+    font-size: 2em;
+    color: var(--bg-blue-bold);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+
+.home .services .line{
+    background-color: var(--bg-blue);
+    width: 40px;
+    height: 3px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.home .services .services-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.home .services .card img{
+    object-fit: cover;
+}
+
+.home .services .card img:hover{
+    transition: 0.5s;
+    transform: scale(1.2,1.2);
+}
+
+.home .services .card .content{
+    text-align: left !important;
+    padding: 15px;
+}
+
+.home .services .card .title{
+    font-size: 1.1em;
+    text-align: left;
+    margin: 15px 0;
+}
+
+.home .services .card .description{
+    font-size: 0.9em;
+    line-height: 1.4em;
+    color: var(--bg-blue-dark);
 }

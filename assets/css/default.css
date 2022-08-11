@@ -17,8 +17,25 @@
 :root{
     --bg-blue: #0d42ff;
     --bg-blue-bold: #001f8d;
-    --bg-blue-dark:#0e1d34
+    --bg-blue-dark:#0e1d34;
+    --container-size: 1320px;
 }
+
+.container{
+    max-width: var(--container-size);
+    padding: 0 12px;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
 ul{
     list-style: none;
 }
@@ -66,5 +83,18 @@ a{
     opacity: 0;
     max-height: 0px !important;
     overflow-y: hidden;
+}
 
+[data-animate-scroll]{
+    opacity: 0;
+    transition: 0.6s ease-out;
+}
+
+[data-animate-scroll="bottom"]{
+    transform: translateY(80px);
+}
+
+[data-animate-scroll].animate-scroll{
+    opacity: 1;
+    transform: translate(0, 0);
 }
