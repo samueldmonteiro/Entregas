@@ -20,31 +20,61 @@ if (document.querySelector(".dropdown-link")) {
 
 const animateScrollElements = document.querySelectorAll("[data-animate-scroll]");
 const animateScrollClass = "animate-scroll";
+let header = document.querySelector("header");
 
 function animateScroll(elements) {
     const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 3.5);
-    elements.forEach(element=>{
-        if(windowTop > element.offsetTop){
+
+    elements.forEach(element => {
+        if (windowTop > element.offsetTop) {
             element.classList.add(animateScrollClass);
-        }else{
-            element.classList.remove(animateScrollClass);
+            element.setAttribute("animated", "true");
+
         }
-    }) 
+    })
 }
 
-const debounce = function(func, wait){
-	let timer = null;
+function checkAllAnimated() {
+    for (element of animateScrollElements) {
+        if (!element.classList.contains(animateScrollClass)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+function debounce(func, wait, immediate) {
+	var timeout;
 	return function() {
-		clearTimeout(timer);
-		timer = setTimeout(func, wait);
-	}
-}
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
-animateScroll(animateScrollElements);
+if (animateScrollElements.length) {
+    window.addEventListener("scroll", debounce(function () {
 
-window.addEventListener("scroll", debounce(function () {
+        if (window.scrollY > 0) {
+            document.querySelector("header").classList.add("header-background");
+        } else {
+            document.querySelector("header").classList.remove("header-background");
+        }
+
+        if(!checkAllAnimated()){
+            animateScroll(animateScrollElements);
+        }
+    }, 200));
+
     animateScroll(animateScrollElements);
-    console.log("exec..");
-}, 200));
+
+}
 
 
