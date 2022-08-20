@@ -21,6 +21,21 @@ header{
     align-items: center;
 }
 
+.container-header nav{
+    transition: 0.4s;
+}
+
+.show-nav{
+    right: 0px !important;
+}
+
+#header-button{
+    display: none;
+    z-index: 999;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+}
 .container-header .logo{
     font-size: 30px;
     font-weight: bold;
@@ -77,6 +92,7 @@ header{
 .home-cover{
     padding-top: 120px;
     padding-bottom: 70px;
+    overflow-x: hidden;
 }
 
 .home-cover{

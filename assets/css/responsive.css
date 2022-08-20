@@ -33,6 +33,57 @@
     .home .services .services-card{
         grid-template-columns: 1fr 1fr !important;
     }
+
+
+    .container-header{
+        overflow-x: hidden;
+    }
+
+    .container-header nav{
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        background-color: var(--bg-blue-dark);
+        padding: 30px 50px;
+        bottom: 0;
+        right: -999px;
+    }
+
+    .container-header nav .nav-links{
+        flex-direction: column;
+        align-items: flex-start;        
+    }
+
+    .container-header nav .nav-links li{
+        margin-top:30px;
+        margin-left: 0;
+
+    }
+
+    .container-header nav .nav-links li a{
+        display: block;
+        padding: 10px;
+        font-size: 1.1em;
+    }
+
+    .container-header nav .nav-links .get-quote{
+        margin-left: 0;
+    }
+
+
+    .ul-services li{
+        margin: 5px 0 !important;
+    }
+    .ul-services a{
+        padding: 9px !important;
+        margin: 0;
+    }
+
+    #header-button{
+        display: block !important;
+    }
+
 }
 
 @media (max-width:770px){
@@ -44,6 +95,10 @@
     .home .services .services-card .card{
         max-width: calc(100% - 50px);
         margin: 0 auto;
+    }
+
+    .home .call-action{
+        padding: 80px 15px !important;
     }
 
 }
@@ -64,6 +119,15 @@
 
     .home .home-cover{
         font-size: 8px;
+        padding-top: 100px !important;
+    }
+
+    .home-cover .form-location{
+        font-size: 14px;
+    }
+
+    .home-cover .numbers{
+        font-size: 12px;
     }
 
     .home-cover .content .description{
@@ -79,6 +143,18 @@
     }
     .home-cover .numbers span{
         margin: 15px 0;
+    }
+
+    .home .services .services-card .card{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width:350px){
+    header nav{
+        width: 100vw;
     }
 
 }

@@ -45,18 +45,18 @@ function checkAllAnimated() {
 
 
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
 };
 
 if (animateScrollElements.length) {
@@ -68,7 +68,7 @@ if (animateScrollElements.length) {
             document.querySelector("header").classList.remove("header-background");
         }
 
-        if(!checkAllAnimated()){
+        if (!checkAllAnimated()) {
             animateScroll(animateScrollElements);
         }
     }, 200));
@@ -78,3 +78,10 @@ if (animateScrollElements.length) {
 }
 
 
+if (document.querySelector("#header-button")) {
+    document.querySelector("#header-button").addEventListener("click", function () {
+
+        let nav = document.querySelector("header nav");
+        nav.classList.toggle("show-nav");
+    });
+}
